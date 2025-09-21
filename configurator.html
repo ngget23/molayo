@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>MALAYO — Configurator</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css"/>
+  <link rel="stylesheet" href="./css/styles.css" />
+
+</head>
+<body data-page="configurator">
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="index.html">MALAYO</a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"></button>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="models.html">Models</a>
+      <a href="technology.html">Technology</a>
+      <a href="configurator.html" class="active">Configurator</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="btn-pill">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero container">
+    <h1>Build Your MALAYO</h1>
+    <p>Pick a base model and tune every detail. Watch price and performance update live.</p>
+  </section>
+
+  <section class="container configurator-grid">
+    <div class="visualizer">
+      <!-- Simple inline SVG silhouette whose color/rims swap via JS -->
+      <svg id="carSVG" viewBox="0 0 900 360" class="car-svg" aria-label="Car preview">
+        <defs>
+          <filter id="glow"><feGaussianBlur stdDeviation="4" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <g id="body" filter="url(#glow)">
+          <path id="shell" d="M60 240 Q140 160 240 150 L560 140 Q680 140 760 200 Q800 220 830 245 L850 245 Q860 245 860 255 L860 270 Q860 280 850 280 L820 280 Q780 240 720 240 L220 240 Q160 240 120 270 L80 270 Q70 270 70 260 L70 250 Q70 240 80 240 Z" fill="#00c9a7"/>
+        </g>
+        <g id="wheels">
+          <g id="wheelFront" transform="translate(690,280)">
+            <circle r="44" class="tire"/>
+            <circle r="30" class="rim rim-style-1"/>
+          </g>
+          <g id="wheelRear" transform="translate(230,280)">
+            <circle r="44" class="tire"/>
+            <circle r="30" class="rim rim-style-1"/>
+          </g>
+        </g>
+      </svg>
+      <div class="viz-notes">
+        <span id="vizModel">Apex</span> · <span id="vizColor">Teal Pulse</span> · <span id="vizRims">Aero-V1</span>
+      </div>
+    </div>
+
+    <form class="config-form" id="configForm">
+      <div class="group">
+        <label>Model</label>
+        <div class="options">
+          <label><input type="radio" name="model" value="Apex" checked> Apex</label>
+          <label><input type="radio" name="model" value="Strada"> Strada</label>
+          <label><input type="radio" name="model" value="Rallye"> Rallye</label>
+        </div>
+      </div>
+
+      <div class="group">
+        <label>Powertrain</label>
+        <select name="powertrain">
+          <option value="eTri">Tri-Motor Electric</option>
+          <option value="hybrid">Electro-Hybrid</option>
+        </select>
+      </div>
+
+      <div class="group">
+        <label>Exterior Color</label>
+        <select name="color">
+          <option value="teal">Teal Pulse</option>
+          <option value="obsidian">Obsidian Black</option>
+          <option value="ice">Ice Silver</option>
+          <option value="ember">Ember Red</option>
+          <option value="lime">Lime Shock</option>
+        </select>
+      </div>
+
+      <div class="group">
+        <label>Wheels</label>
+        <select name="rims">
+          <option value="rim-style-1">Aero-V1</option>
+          <option value="rim-style-2">Forged-V2</option>
+          <option value="rim-style-3">Spider-V3</option>
+        </select>
+      </div>
+
+      <div class="group">
+        <label>Interior</label>
+        <select name="interior">
+          <option value="track">Track Alcantara</option>
+          <option value="grand">Grand Nappa</option>
+          <option value="tech">Tech Weave</option>
+        </select>
+      </div>
+
+      <div class="group two">
+        <div>
+          <label>Brake Package</label>
+          <select name="brakes">
+            <option value="ceramic">Carbon Ceramic</option>
+            <option value="steel">Performance Steel</option>
+          </select>
+        </div>
+        <div>
+          <label>Suspension</label>
+          <select name="susp">
+            <option value="active">Active Triplex</option>
+            <option value="sport">Sport Coil</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="price-block">
+        <div>
+          <small>Est. Price</small>
+          <div class="price" id="price">$0</div>
+        </div>
+        <div>
+          <small>0–100 km/h</small>
+          <div class="perf" id="accel">—</div>
+        </div>
+        <div>
+          <small>Range</small>
+          <div class="perf" id="range">—</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn" type="button" id="saveBuild">Save Build</button>
+        <button class="btn ghost" type="reset" id="resetBuild">Reset</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="container build-summary" id="buildSummary" hidden>
+    <h2>Your Build Summary</h2>
+    <pre id="summaryJSON" class="summary"></pre>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="logo">MALAYO</div>
+    <nav class="footer-nav">
+      <a href="models.html">Models</a>
+      <a href="technology.html">Technology</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <small>© <span id="year"></span> Malayo Automobili.</small>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/configurator.js"></script>
+</body>
+</html>

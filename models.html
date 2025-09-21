@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>MALAYO — Models</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css"/>
+</head>
+<body data-page="models">
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="index.html">MALAYO</a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"></button>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="models.html" class="active">Models</a>
+      <a href="technology.html">Technology</a>
+      <a href="configurator.html">Configurator</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="btn-pill">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero container">
+    <h1>Models</h1>
+    <p>Every MALAYO begins as a singular sketch: a blade of light cutting through air. Choose your flavor of speed.</p>
+  </section>
+
+  <section class="cards container">
+    <article class="card" id="apex">
+      <div class="card-media gradient-blue"></div>
+      <div class="card-body">
+        <h3>Apex</h3>
+        <p>Ultra-light flagship for maximal lap pace. Active triplex, multi-stage aero, and tri-motor e-axle.</p>
+        <ul class="specs">
+          <li>0–100 km/h: 1.9 s</li>
+          <li>Max power: 1,400 hp eq.</li>
+          <li>Range: 620 km</li>
+        </ul>
+        <a class="btn ghost" href="configurator.html?model=Apex">Configure</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-media gradient-purple"></div>
+      <div class="card-body">
+        <h3>Strada</h3>
+        <p>Grand-touring refinement with devastating pace. Air-chamber ride and whisper-quiet urban mode.</p>
+        <ul class="specs">
+          <li>0–100 km/h: 2.4 s</li>
+          <li>Max power: 1,050 hp eq.</li>
+          <li>Range: 720 km</li>
+        </ul>
+        <a class="btn ghost" href="configurator.html?model=Strada">Configure</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-media gradient-green"></div>
+      <div class="card-body">
+        <h3>Rallye</h3>
+        <p>High-ride performance for real roads. Adaptive height, gravel-tuned torque vectoring.</p>
+        <ul class="specs">
+          <li>0–100 km/h: 2.7 s</li>
+          <li>Max power: 900 hp eq.</li>
+          <li>Range: 680 km</li>
+        </ul>
+        <a class="btn ghost" href="configurator.html?model=Rallye">Configure</a>
+      </div>
+    </article>
+  </section>
+
+  <section class="container banner-cta">
+    <div>
+      <h2>Build your MALAYO</h2>
+      <p>Pick a base and tune it for your roads and your rhythm.</p>
+    </div>
+    <a class="btn" href="configurator.html">Open Configurator</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="logo">MALAYO</div>
+    <nav class="footer-nav">
+      <a href="technology.html">Technology</a>
+      <a href="about.html">Company</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <small>© <span id="year"></span> Malayo Automobili.</small>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
